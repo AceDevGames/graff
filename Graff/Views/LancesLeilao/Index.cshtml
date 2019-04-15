@@ -1,0 +1,46 @@
+﻿@model IEnumerable<Graff.Models.LancesLeilao>
+@{
+    ViewData["Title"] = "Lances do Leilão";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<table class="table table-striped table-hover">
+    <thead>
+        <tr class="success">
+            <th>
+                @Html.DisplayNameFor(model => model.Leilao.Produto.nome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Leilao.Produto.valor)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Pessoa.nome)
+                )
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Leilao.Produto.nome)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Leilao.valorLance)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Pessoa.nome)
+                </td>
+                <td>
+                    <a asp-action="Create" asp-route-id="@item.id">Dar Lance</a>
+                   
+                </td>
+            </tr>
+        }
+        }
+    </tbody>
+
+</table>

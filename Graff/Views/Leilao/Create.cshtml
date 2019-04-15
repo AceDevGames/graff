@@ -1,0 +1,29 @@
+﻿@model Graff.Models.ViewModels.LeilaoFormViewModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<h4>Leilões</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div class="form-group">
+                <label asp-for="Leilao.ProdutoId" class="control-label"></label>
+                <select asp-for="Leilao.ProdutoId" asp-items="@(new SelectList(Model.Produtos,"id",
+                "nome"))" class="form-control"></select>
+            </div>
+            <div>
+                <label asp-for="Leilao.valorLance" class="control-label"></label>
+                <input asp-for="Leilao.valorLance" class="form-control" />
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn" />
+            </div>
+        </form>
+    </div>
+</div>
+
